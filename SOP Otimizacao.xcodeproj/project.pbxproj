@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED8E4EDB1DAA96C6009F3DC6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = ED8E4EDA1DAA96C6009F3DC6 /* main.c */; };
+		ED8E4EE61DAAC6DF009F3DC6 /* tour.c in Sources */ = {isa = PBXBuildFile; fileRef = ED8E4EE41DAAC6DF009F3DC6 /* tour.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		ED8E4ED71DAA96C6009F3DC6 /* SOP Otimizacao */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SOP Otimizacao"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8E4EDA1DAA96C6009F3DC6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		ED8E4EE41DAAC6DF009F3DC6 /* tour.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tour.c; sourceTree = "<group>"; };
+		ED8E4EE51DAAC6DF009F3DC6 /* tour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tour.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				ED8E4EDA1DAA96C6009F3DC6 /* main.c */,
+				ED8E4EE41DAAC6DF009F3DC6 /* tour.c */,
+				ED8E4EE51DAAC6DF009F3DC6 /* tour.h */,
 			);
 			path = "SOP Otimizacao";
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8E4EDB1DAA96C6009F3DC6 /* main.c in Sources */,
+				ED8E4EE61DAAC6DF009F3DC6 /* tour.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +245,7 @@
 				ED8E4EE01DAA96C6009F3DC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
