@@ -13,12 +13,14 @@
 #include <stdlib.h> 
 #include <time.h>
 
-void imprimeTour(int *vetor, int tamanho);
-int calculaFitness(int *distancias, int tamanho, int *cidades);
-int* calculaFitnessPopulacao(int *distancias, int tamanho, int *cidades, int *fitness, int tamanho_populacao);
+void imprimeTodasDistancias(int *vetor, int tamanho);
+void imprimirDistancias(int *vetor, int tamanho, int *distancias);
+void calculaFitness(int *distancias, int tamanho, int *cidades, int *fitness_parcial);
+int calculaFitnessPopulacao(int *distancias, int tamanho, int *cidades, int *fitness, int tamanho_populacao);
 void criarTour(int *vetor, int tamanho);
-void imprimirTour(int *vetor, int tamanho);
+void imprimirTour(int *vetor, int tamanho, int numero);
 void swap (int *a, int *b);
-void randomize ( int *vetor, int n );
+void randomize(int *vetor, int n );
+int torneio(int populacao, int participantes, int *fitness);
 
 #endif /* tour_h */
