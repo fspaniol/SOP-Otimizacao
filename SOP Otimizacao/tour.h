@@ -22,5 +22,8 @@ void imprimirTour(int *vetor, int tamanho, int numero);
 void swap (int *a, int *b);
 void randomize(int *vetor, int n );
 int torneio(int populacao, int participantes, int *fitness);
+void crossover(int *pai, int *mae, int *filho, int tamanho);
+void copiar(int *destino,int *origem, int tamanho);
+void mutacao(int *vetor, int tamanho, int taxa);
 
 #endif /* tour_h */

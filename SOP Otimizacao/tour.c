@@ -49,7 +49,7 @@ void calculaFitness(int *distancias, int tamanho, int *cidades, int *fitness_par
 
 int calculaFitnessPopulacao(int *distancias, int tamanho, int *cidades, int *fitness, int tamanho_populacao){
     int x;
-    int melhor = 10000000;
+    int melhor;
     int indice_melhor;
     for(x=0;x<tamanho_populacao;x++){
         calculaFitness(distancias,tamanho,&cidades[x*tamanho], &fitness[x]);
@@ -58,7 +58,7 @@ int calculaFitnessPopulacao(int *distancias, int tamanho, int *cidades, int *fit
             printf("O fitness do %d eh: %d \n", x, fitness[x]);
             imprimirDistancias(&cidades[x*tamanho], tamanho, distancias);
         }*/
-        if(melhor > fitness[x]){
+        if((melhor > fitness[x]) || (x == 0)){
             melhor = fitness[x];
             indice_melhor = x;
         }
@@ -145,6 +145,51 @@ int torneio(int populacao, int participantes, int *fitness){
     //printf("O melhor foi o %d com fitness: %d\n", index_maior, maior); // anuncia o vencedor
     
     return index_maior;
+}
+
+void crossover(int *pai, int *mae, int *filho, int tamanho){
+    int usado[tamanho];
+    int x,y, temp;
+    
+    for (x=0;x<tamanho;x++){
+        usado[x] = 0;
+    }
+    
+    temp = rand() % tamanho; // Onde será feito o corte dos filhos do pai e da mae
+    
+    //printf("O local sorteado foi %d\n", temp);
+    
+    for (x=0;x<temp;x++){
+        filho[x] = pai[x];
+        usado[pai[x]] = 1;
+    }
+    
+    for(x=0;x<tamanho;x++){
+        if(usado[mae[x]]==0){
+            filho[temp] = mae[x];
+            usado[mae[x]] = 1;
+            temp++;
+        }
+    }
+}
+
+void copiar(int *destino, int *origem, int tamanho){
+    int x;
+    for (x=0;x<tamanho;x++){
+        destino[x] = origem[x];
+    }
+}
+
+void mutacao(int *vetor, int tamanho, int taxa){
+    int rand1, rand2, rand3;
+    
+    rand1 = rand() % 100;
+    if (rand1 < taxa){
+        rand2 = rand() % tamanho;
+        rand3 = rand() % tamanho;
+
+        swap(&vetor[rand2],&vetor[rand3]);
+    }
 }
 
 
