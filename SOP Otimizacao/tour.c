@@ -73,13 +73,13 @@ int calculaFitnessPopulacao(int *distancias, int tamanho, int *cidades, int *fit
 void criarTour(int *vetor, int tamanho){
     int x;
     
-    vetor[0] = 0;
-    vetor[tamanho-1] = tamanho-1; // Preenche as matrizes em [1,tamanho-2], porque as primeira e ultima posições já são pré-definidas
+    //vetor[0] = 0;
+    //vetor[tamanho-1] = tamanho-1; // Preenche as matrizes em [1,tamanho-2], porque as primeira e ultima posições já são pré-definidas
     
-    for (x = 1; x<tamanho-1; x++){
+    for (x = 0; x<tamanho; x++){
         vetor[x] = x;
     }
-    randomize(&vetor[1],tamanho-2);
+    randomize(&vetor[0],tamanho);
 }
 
 void swap (int *a, int *b) // faz o swap entre duas posicoes
