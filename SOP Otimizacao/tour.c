@@ -30,20 +30,25 @@ void imprimirDistancias(int *vetor, int tamanho, int *distancias){
 }
 
 void calculaFitness(int *distancias, int tamanho, int *cidades, int *fitness_parcial){
-    int x;
+    int x, y;
     int aux;
+    int factivel = 0; // flag se ve que cada cidade pode vir antes de todas as seguintes
     *fitness_parcial = 0;
     
     for(x = 0; x < tamanho-1; x++){
-        aux = cidades[x];
-         //printf("A distancia da cidade %d para a %d eh: %d \n", cidades[x], cidades[x+1], distancias[aux * tamanho + (cidades[x+1])]);
-        if (distancias[aux * tamanho + (cidades[x+1])] == -1)
-            //*fitness_parcial += (distancias[aux * tamanho + (cidades[x+1])] * 100);
-            *fitness_parcial += 10000; // Caso o caminho seja não valido, de uma distancia bem grande
+        factivel = 0;
+        for(y = x; y < tamanho-1; y++){
+            aux = cidades[x];
+            //printf("A distancia da cidade %d para a %d eh: %d \n", cidades[x], cidades[x+1], distancias[aux * tamanho + (cidades[x+1])]);
+            if (distancias[aux * tamanho + (cidades[y+1])] == -1)
+                factivel = 1; // Existe uma cidade Y que não pode vir depois da X
+        }
+        if (factivel == 1)
+            *fitness_parcial += 10000;
         else
             *fitness_parcial += distancias[aux * tamanho + (cidades[x+1])]; // Calcula a distancia de uma cidade para a próxima
+        
     }
-    
     //*fitness_parcial += distancias[x * tamanho + (cidades[0])]; // será que precisa?
 }
 
