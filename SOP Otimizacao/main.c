@@ -108,6 +108,6 @@ int main(int argc, const char * argv[]) {
     clock_t end = clock();
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
     
-    printf("The time spent was %f seconds\n", time_spent*10);
+    printf("The time spent was %f seconds\n", time_spent);
     return 0;
 }
