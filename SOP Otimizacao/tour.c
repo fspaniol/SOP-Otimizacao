@@ -44,7 +44,7 @@ void calculaFitness(int *distancias, int tamanho, int *cidades, int *fitness_par
                 factivel = 1; // Existe uma cidade Y que não pode vir depois da X
         }
         if (factivel == 1)
-            *fitness_parcial += 10000;
+            *fitness_parcial += 50000;
         else
             *fitness_parcial += distancias[aux * tamanho + (cidades[x+1])]; // Calcula a distancia de uma cidade para a próxima
         

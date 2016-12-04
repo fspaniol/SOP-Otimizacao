@@ -11,15 +11,13 @@
 #include <time.h>
 #include "tour.h"
 
+#define taxa_mutacao 20
+
 
 int main(int argc, const char * argv[]) {
     //printf("Insira o seu input: \n");
     
     clock_t begin = clock();
-    
-    int tamanho_populacao = atoi(argv[1]);
-    int tamanho_torneio = atoi(argv[2]);
-    int quantidade_iteracoes = atoi(argv[3]);
     
     if (argc != 4){ // Se não recebe os argumentos
         puts("Erro!");
@@ -29,6 +27,11 @@ int main(int argc, const char * argv[]) {
         puts("3 - Quantidade de iteracoes");
         return 0; // termina o programa
     }
+    
+    int tamanho_populacao = atoi(argv[1]);
+    int tamanho_torneio = atoi(argv[2]);
+    int quantidade_iteracoes = atoi(argv[3]);
+    
     
     if (tamanho_populacao <= tamanho_torneio){ // Se torneio for igual ou maior que populacao, da erro
         puts("O tamanho da populacao deve ser maior que o tamanho do torneio!");
@@ -93,7 +96,7 @@ int main(int argc, const char * argv[]) {
         for (x = 0; x<tamanho_populacao;x++){ // preenche o vetor do filho
             crossover(&tours_atuais[pai * quantidade_cidades],&tours_atuais[mae * quantidade_cidades], &tours_filho[x*quantidade_cidades], quantidade_cidades);
             //imprimirTour(&tours_filho[x*quantidade_cidades],quantidade_cidades,x);
-            mutacao(&tours_filho[x*quantidade_cidades],quantidade_cidades,20);
+            mutacao(&tours_filho[x*quantidade_cidades],quantidade_cidades,taxa_mutacao);
         }
     
         copiar(&tours_atuais[0],&tours_filho[0], tamanho_populacao*quantidade_cidades); // atualiza o vetor oficial com o resultado do crossover
